@@ -1,5 +1,9 @@
 **Setup**
 
+Everything you need to use the arm should be in the RunArmFiles folder. Download the everything folder to use the arm.
+
+Everything else is older versions, every iteration, testfiles, and more.
+
 To run the Simulink model, first download the CAD files and make sure they are accessible in your working directory.
 
 Make sure all required project files are in the correct folder before starting. This includes the Simulink file, the user interface file, and any generated motor data files. Do not change any file names.
@@ -14,9 +18,13 @@ This step takes the recorded motion data and generates the motor output file nee
 
 Before running the conversion, confirm that the input data file is correct and that the Simulink model is linked to the required files.
 
+Run "DataCondition.m". Set cal_indx_range to a stationary range, "armDownCal_idx" to a point when the arm was straight down, and "armOutCal_idx", to a point where the arm was out at 45 degrees.
+
+Run "WriteAngles.m" to create the data to upload to the arm.
+
 **Uploading Data to the Arm**
 
-After the motor data has been generated, open the user interface.
+After the motor data (WriteAngles.m output) has been generated, open the user interface by running "ServoStreamerTabbedUI_TeensysD.m"
 
 Use the streamer file through the user interface to upload the motor data to the arm.
 
@@ -38,4 +46,4 @@ If the Simulink model does not run, check that the CAD files have been downloade
 
 If the arm does not respond, verify the hardware connection, the uploaded motor data, and the selected serial port.
 
-The power and gnd pins ont he green circuit board should be connected to a power supply at 12V, ensure the current is limited to no more than 500 mA.
+The power and gnd pins on the green circuit board should be connected to a power supply at 12V, ensure the current is limited to no more than 500 mA.
